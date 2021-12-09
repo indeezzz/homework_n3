@@ -26,7 +26,8 @@ namespace Lesson_4
         }
         public static void ValidHeightofHouse(BuildClass build)
         {
-            if (build != null && build.Height != 0 )
+
+           if (build != null && build.Height != 0 )
             {
                 GetHeightofHouse(build, build.Height);
             }

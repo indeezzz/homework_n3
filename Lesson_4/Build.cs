@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson_4
 {
+    //класс здания
     public class BuildClass
     {
         public Guid Number { get; private set; }

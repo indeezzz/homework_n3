@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson_4
 {
+    //Тестовый класс
     class Test
     {
         public static void TestSystem()
