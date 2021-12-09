@@ -6,36 +6,47 @@ using System.Threading.Tasks;
 
 namespace Lesson_4
 {
-    public class Build
+    public class BuildClass
     {
-        private Guid _number;
-        private int _height;        
-        private int _level;
-        private int _frdoor;
-        private int _apartments;
+        public Guid Number { get; private set; }
+        public int Height { get; set; }
+        public int Level { get; set; }
+        public int Frdoor { get; set; }
+        public int Apartments { get; set; }
+        public string MyProperty { get; private set; }
 
-        public Build(int height, int level, int frdoor, int apartments) : this(Guid.Empty, height, level, frdoor, apartments) { }
-        private Build(Guid number, int height, int level, int frdoor, int apartments)
-        {
+        private BuildClass(int height, int level, int frdoor, int apartments) : this(Guid.Empty, height, level, frdoor, apartments) { }
+        private BuildClass(Guid number, int height, int level, int frdoor, int apartments)
+        {            
             number = Guid.NewGuid();
-            _number = number;
-            _height = height;
-            _level = level;
-            _frdoor = frdoor;
-            _apartments = apartments;
+            Number = number;
+            Height = height;
+            Level = level;
+            Frdoor = frdoor;
+            Apartments = apartments;
         }
-        public void GetFullInfo()
+
+        protected BuildClass()
         {
-            Console.WriteLine($"Уникальный номер дома:{_number} \n Количество этажей в здании: {_level} \n Высота здания: {_height} \n Количество подъездов: {_frdoor} ");
         }
-        public void GetHeightofHouse()
+
+        protected static BuildClass Construct(int height, int level, int frdoor, int apartments)
         {
-            Console.WriteLine($"Уникальный номер дома:{_number} \n Высота здания: {_height}");
+            return new BuildClass(height, level, frdoor,apartments);
         }
-        public void GetAparmentsofFrDoor()
+
+        protected static void GetFullInfo(BuildClass build)
         {
-            int frdoor_appartment = _apartments / _frdoor;
-            Console.WriteLine($"Уникальный номер дома:{_number} \n Количество квартир в подъезде: {frdoor_appartment} \n Количество квартир на этаже: {frdoor_appartment / _level}");
-        }        
+            Logger.Log($"Дом под номером: {build.Number} Высота здания: {build.Height} Этажей: {build.Level} Подъездов: {build.Frdoor} Квартир: {build.Apartments}");
+        }
+        protected static void GetHeightofHouse(BuildClass build, int height)
+        {
+            Logger.Log($"Дом под номером: {build.Number} Высота здания: {height} ");
+        }
+        protected static void GetAparmentsofFrDoor(BuildClass build, int apartments, int frdoor, int level)
+        {
+            int frdoor_appartment = apartments / frdoor;
+            Logger.Log($"Уникальный номер дома:{build.Number} \t Количество квартир в подъезде: {frdoor_appartment} \t Количество квартир на этаже: {frdoor_appartment / level}");
+        }
     }
 }

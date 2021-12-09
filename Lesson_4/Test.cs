@@ -10,20 +10,12 @@ namespace Lesson_4
     {
         public static void TestSystem()
         {
-            Build[] builders = new Build[]
-            {
-                new Build (100, 3, 6, 72) { },
-                new Build (200, 10, 6, 120) { },
-            };
-
-            builders[0].GetFullInfo();
-            builders[1].GetFullInfo();
-
-            builders[0].GetHeightofHouse();
-            builders[1].GetHeightofHouse();
-
-            builders[0].GetAparmentsofFrDoor();
-            builders[1].GetAparmentsofFrDoor();
+           
+            BuildFactory.CreateFullInfo(BuildFactory.CreateBusinessObject(100, 3, 6, 72));
+            BuildFactory.ValidHeightofHouse(BuildFactory.CreateBusinessObject(100, 3, 6, 72));
+            BuildFactory.ValidAparmentsofFrDoor(BuildFactory.CreateBusinessObject(100, 3, 6, 72));
+            
         }
     }
+        
 }
