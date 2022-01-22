@@ -16,6 +16,10 @@ namespace Lesson_5
         {
             Console.WriteLine($"Данное утверждение: {num} ");
         }
-        
+        public static void Log(string str)
+        {
+            Console.WriteLine(str);
+        }
+
     }
 }
