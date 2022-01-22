@@ -72,7 +72,7 @@ namespace Lesson_5
             ClassDrob j = new ClassDrob(5, 3, 1);
             ClassDrob k = new ClassDrob(5, 3, 2);
 
-            Logger.Log(Equals(j,k));
+            Logger.Log(j.Equals(k));
 
             ClassDrob l = new ClassDrob(5, 3, 1);
 
